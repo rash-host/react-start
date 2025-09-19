@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    .logout-btn {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #f44336;
+      color: #fff;
+      padding: 8px 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .logout-btn i {
+      font-size: 14px;
+    }
+
+    .username-box {
+      margin: 20px 15px 0 15px;
+      padding: 12px;
+      background: #2196f3;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      font-weight: bold;
+      font-size: 15px;
+    }
+
+    .timetable-table, .attendance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    .timetable-table th, .timetable-table td,
+    .attendance-table th, .attendance-table td {
+      border: 1px solid #ccc;
+      padding: 6px;
+      text-align: center;
+      font-size: 13px;
+    }
+    .timetable-table th, .attendance-table th {
+      background: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <!-- ✅ Topbar -->
+    <div class="topbar">
+      <h2 class="logo">
+        <span class="menu-toggle" id="menuToggle"><i class="fa-solid fa-bars"></i></span>
+        <span id="dashboardTitle">Student Dashboard</span>
+      </h2>
+      <button class="logout-btn" onclick="logout()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i> Logout
+      </button>
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <h2 class="logo" style="display:none;">
+        <span class="menu-toggle" id="menuToggleHidden"><i class="fa-solid fa-bars"></i></span>
+        <span id="dashboardTitleHidden">Student Dashboard</span>
+      </h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="#" onclick="showSection('timetable', event)">Time Table</a>
+        <a href="#" onclick="showSection('attendance', event)">Attendance</a>
+        <a href="#" class="active" onclick="showSection('notice', event)">Notice</a>
+        <a href="#" onclick="showSection('admission', event)">Admission</a>
+        <a href="#" onclick="showSection('fee', event)">Fee Collection</a>
+        <a href="#" onclick="showSection('hostel', event)">Hostel Allocation</a>
+        <a href="#" onclick="showSection('exam', event)">Exam Records</a>
+        <a href="#" onclick="showSection('support', event)">Contact & Support</a>
+        <div class="username-box">Welcome, John Doe</div>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <header class="page-header">
+        <button class="back-btn" onclick="goBack()"><i class="fa-solid fa-arrow-left"></i> <span id="section-title">Notice</span></button>
+      </header>
+
+      <!-- ✅ Timetable Section -->
+      <section id="timetable" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="createTimetableCard()"><i class="fa-solid fa-plus"></i></button>
+        <div id="timetable-container"></div>
+      </section>
+
+      <!-- ✅ Attendance Section -->
+      <section id="attendance" class="section" style="display:none;">
+        <button class="add-btn" onclick="addAttendanceCard()"><i class="fa-solid fa-plus"></i></button>
+        <div id="attendance-container"></div>
+      </section>
+
+      <!-- ✅ Notice Section -->
+      <section id="notice" class="section">
+        <button class="add-btn" style="display:none;" onclick="addCard('notice')"><i class="fa-solid fa-plus"></i></button>
+        <div class="notice-card">
+          <div class="notice-header">
+            <h3>Notice for Sports</h3>
+            <span class="date-container">
+              <i class="fa-solid fa-pencil edit-btn" style="display:none;" onclick="editCard(this)"></i>
+              <i class="fa-solid fa-floppy-disk save-btn" style="display:none;" onclick="saveCard(this)"></i>
+              <i class="fa-solid fa-trash delete-btn" style="display:none;" onclick="deleteCard(this)"></i>
+              <span class="date-text">Published: 16/09/2025</span>
+            </span>
+          </div>
+          <p>Students join for Hackathon on 12 November.</p>
+          <button class="download-btn"><i class="fa-solid fa-download"></i> Download</button>
+        </div>
+      </section>
+
+      <!-- ✅ Admission Section -->
+      <section id="admission" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="addCard('admission')"><i class="fa-solid fa-plus"></i></button>
+        <div id="admission-container"></div>
+      </section>
+
+      <!-- ✅ Fee Section -->
+      <section id="fee" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="addCard('fee')"><i class="fa-solid fa-plus"></i></button>
+        <div id="fee-container"></div>
+      </section>
+
+      <!-- ✅ Hostel Section -->
+      <section id="hostel" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="addCard('hostel')"><i class="fa-solid fa-plus"></i></button>
+        <div id="hostel-container"></div>
+      </section>
+
+      <!-- ✅ Exam Section -->
+      <section id="exam" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="addCard('exam')"><i class="fa-solid fa-plus"></i></button>
+        <div id="exam-container"></div>
+      </section>
+
+      <!-- ✅ Support Section -->
+      <section id="support" class="section" style="display:none;">
+        <button class="add-btn" style="display:none;" onclick="addCard('support')"><i class="fa-solid fa-plus"></i></button>
+        <div id="support-container"></div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function logout() {
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <script src="script2.js"></script>
+  <script src="attendance.js"></script>
+
+  <script>
+    const username = localStorage.getItem('username') || 'Guest';
+    const role = localStorage.getItem('loginAs') || 'student';
+
+    document.getElementById('dashboardTitle').textContent = role === 'faculty' ? 'Faculty Dashboard' : 'Student Dashboard';
+    document.getElementById('dashboardTitleHidden').textContent = role === 'faculty' ? 'Faculty Dashboard' : 'Student Dashboard';
+
+    const usernameBox = document.querySelector('.username-box');
+    if (usernameBox) {
+      usernameBox.textContent = `Welcome, ${username} (${role})`;
+    }
+
+    // Hide edit, delete, and add buttons if loginAs is student
+    if(role === 'student') {
+      document.querySelectorAll('.edit-btn, .delete-btn, .add-btn').forEach(btn => {
+        btn.style.display = 'none';
+      });
+    }
+  </script>
+</body>
+</html>

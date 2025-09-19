@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Authentication</title>
+  <link rel="stylesheet" href="nstyles.css" />
+</head>
+<body>
+
+  <!-- Overlay Background Blur -->
+  <div class="popup-overlay active" id="popupOverlay">
+    <div class="auth-container" id="authBox">
+      
+      <!-- Login Form -->
+      <div id="loginForm">
+        <h2>Login</h2>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="Enter email" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="loginPassword" placeholder="Enter password" required>
+        </div>
+        <button class="auth-btn" onclick="login()">Login</button>
+        <span class="toggle-link" onclick="toggleForm('registerForm')">Don’t have an account? Register</span>
+      </div>
+
+      <!-- Register Form -->
+      <div id="registerForm" style="display:none;">
+        <h2>Register</h2>
+        <div class="input-group">
+          <label>Full Name</label>
+          <input type="text" id="regName" placeholder="Enter full name" required>
+        </div>
+        <div class="input-group">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="Enter email" required>
+        </div>
+        <div class="input-group">
+          <label>Password</label>
+          <input type="password" id="regPassword" placeholder="Create password" required>
+        </div>
+        <button class="auth-btn" onclick="register()">Register</button>
+        <span class="toggle-link" onclick="toggleForm('loginForm')">Already have an account? Login</span>
+      </div>
+
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

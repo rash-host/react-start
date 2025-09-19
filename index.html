@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUIT NOIDA - University Website</title>
+    <link rel="stylesheet" href="nstyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Fix scroll alignment so section titles aren’t hidden under navbar */
+        #about, #admission, #faculty, #hostel, #login-section {
+            scroll-margin-top: 80px; /* adjust if your navbar height differs */
+        }
+
+        /* Zoom effect for banner background image */
+        .college-banner img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            opacity: 0.5;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Extra zoom for mobile */
+        @media (max-width: 768px) {
+            .college-banner img {
+                transform: scale(1.35); /* was 1.25 → now 1.35 (10% more zoom) */
+            }
+        }
+
+        /* Extra zoom for desktop */
+        @media (min-width: 1024px) {
+            .college-banner img {
+                transform: scale(1.1); /* 10% zoom for desktops */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="https://drive.google.com/thumbnail?id=1jSX79nCvwb12UI3PAjcQHndJXWIYdLJ1" alt="NUIT Logo" style="height:40px; width:auto; margin-right:8px;">
+                <span class="logo-text">NUIT NOIDA</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#admission">ADMISSION</a></li>
+                <li><a href="#fee">FEE COLLECTION</a></li>
+                <li><a href="#hostel">HOSTEL ALLOCATION</a></li>
+                <li><a href="#exam">EXAM RECORDS</a></li>
+            </ul>
+            
+            <button class="login-btn" onclick="document.getElementById('login-section').scrollIntoView({behavior:'smooth'})">Login ▼</button>
+        </div>
+    </nav>
+
+    <!-- About Us Section (Moved below header) -->
+    <section class="about-top" id="about" style="background:#f9f9f9; padding:40px 20px; text-align:center;">
+        <h2>About Us</h2>
+        <p style="max-width:900px; margin:15px auto; font-size:16px; line-height:1.6;">
+            NUIT Noida is a premier institution committed to excellence in education, research, and holistic development of students. 
+            With a vision to nurture talent and empower young minds, we provide world-class facilities, 
+            experienced faculty, and a vibrant campus environment that prepares students for global opportunities.
+        </p>
+    </section>
+
+    <!-- Top Background Section with Image -->
+    <section class="college-banner" id="home" style="position: relative; text-align: center; color: #fff;">
+        <img src="https://drive.google.com/thumbnail?id=13CstveGj572YRH1xdfJpzTQvJJWmEagA" alt="College">
+        <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:1170px; padding:20px;">
+            <h1 style="font-size:40px; font-weight:700; color:purple;">Welcome to NUIT Noida</h1>
+            <p style="font-size:16px; margin-top:15px; color:black;">A premier institute dedicated to academic excellence, innovation, and industry-driven education.</p>
+        </div>
+    </section>
+
+    <!-- Proud moments of NUIT Section -->
+    <section class="about" id="admission">
+        <div class="about-container">
+            <div class="about-header">
+                <h2>Proud moments of <span class="highlight">NUIT, Dholakpur</span></h2>
+                <p>Our institute consistently ranks among the top colleges in the region, reflecting our commitment to academic excellence and innovation.<br><br>
+                We are proud to be recognized for our strong placement record and industry-oriented curriculum.<br><br>
+                Our dedicated faculty and modern infrastructure contribute to an environment that nurtures talent and skills.</p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-content">
+                        <h3>95%+ Success Rate</h3>
+                        <p>Consistent results with Top Ranks in University Exams</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🏢</div>
+                    <div class="stat-content">
+                        <h3>300+ Recruiters</h3>
+                        <p>Leading Companies trust our Students every year</p>
+                    </div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">🎓</div>
+                    <div class="stat-content">
+                        <h3>40000+ Graduates</h3>
+                        <p>Thriving across industries worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dedicated teachers section -->
+    <section class="cta" id="faculty">
+        <div class="cta-container">
+            <div class="cta-content">
+                <p class="cta-subtitle">Providing you the best Faculties with Decades of Experiences</p>
+                <h2>Dedicated teachers shaping futures with passion and expertise.</h2>
+                <button class="btn-primary" id="about-btn">About us ▲</button>
+            </div>
+            <div class="cta-image">
+                <img src="https://drive.google.com/thumbnail?id=1PeHIj9MBhLSBuk_MzRM0ku4_Fr19_Bt2" alt="Dedicated teacher" onerror="this.style.display='none'">
+            </div>
+        </div>
+    </section>
+
+    <!-- Life & Opportunities Section -->
+    <section class="features" id="hostel">
+        <div class="features-container">
+            <h2>Life & Opportunities with us</h2>
+            <div class="features-content" style="display:flex; gap:30px; align-items:flex-start;">
+                <div class="features-image">
+                    <img src="https://drive.google.com/thumbnail?id=1Siqo8CDMiKlnIDFNK6yIpBa-Fvh2Qqyt" alt="Campus Map" onerror="this.style.display='none'">
+                </div>
+                <div class="features-list" style="flex:1;">
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h3>Modern Labs</h3>
+                            <p>Hands-on learning with advanced equipment.<br><br>Our state-of-the-art laboratories provide students with practical experience, preparing them for real-world challenges in their field.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h3>Comfortable Hostels</h3>
+                            <p>A home away from home.<br><br>Safe, hygienic, and well-furnished hostels ensure students enjoy a comfortable stay while focusing on studies and personal growth.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <div class="feature-icon">✓</div>
+                        <div class="feature-content">
+                            <h3>Exams & Assessments</h3>
+                            <p>Fair and transparent evaluation system.<br><br>Structured exams and continuous assessments help students track progress, improve performance, and build confidence.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Added 1:1 Image on Right Side -->
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Records -->
+    <section class="ugc" style="margin-top:50px;">
+        <div class="ugc-content">
+            <p>Proudly Recognized & Trusted by University Grants Commission (UGC)</p>
+        </div>
+    </section>
+
+    <!-- Contact for Consultation -->
+    <section class="services" style="margin:50px 0; padding-left:40px;">
+        <div class="services-content">
+            <h1>Transforming WORLDs with just a pen</h1>
+            <p>Education is not just about Books. It's about building your future.<br>
+            Knowledge opens doors, and every admission is the first step towards endless possibilities.</p>
+            <button class="btn-secondary" id="contact-btn">Contact for Consultation ↓</button>
+        </div>
+    </section>
+
+    <!-- Hero Section moved to bottom (Login Section) -->
+    <section class="hero" id="login-section" style="margin:60px 0;">
+        <div class="hero-content" style="background:#f5f5f5; padding:40px; border-radius:15px; max-width:900px; margin:auto; text-align:center;">
+            <h1 style="color:purple;">Manage Your Academic Journey</h1>
+            <p style="color:black;">Login here to access your courses, assignments, and academic records.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="openLogin()">Students Login ▼</button>
+                <button class="btn-primary" onclick="openLogin()">Faculty Login ▼</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="https://drive.google.com/thumbnail?id=1jSX79nCvwb12UI3PAjcQHndJXWIYdLJ1" alt="NUIT Logo" style="height:40px; width:auto; margin-right:8px;">
+                        <span class="logo-text">NUIT NOIDA</span>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <address>
+                        1304, 13th floor, Skyline Plaza-1, Tower-9, International Business Bay-2 Lucknow, Uttar Pradesh 226030
+                    </address>
+                    <div class="contact-info">
+                        <a href="tel:+12345678900" style="display:block; margin-bottom:5px; color:#ff6600; font-weight:600;">+1 234 567 8900</a>
+                        <a href="mailto:contact@nuitnoida.com" style="display:block; color:#ff6600; font-weight:600;">contact@nuitnoida.com</a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <div class="footer-links">
+                        <a href="#about" class="scroll-link">About Us</a>
+                        <a href="#admission" class="scroll-link">Proud Moments</a>
+                        <a href="#faculty" class="scroll-link">Faculty</a>
+                        <a href="#hostel" class="scroll-link">Life & Opportunities</a>
+                        <a href="#login-section" class="scroll-link">Student Login</a>
+                        <a href="#login-section" class="scroll-link">Faculty Login</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 NUIT Noida. All rights reserved.</p>
+                <button class="scroll-top">↑</button>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll to top on About Us button
+        document.getElementById('about-btn').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Scroll to bottom on Contact button
+        document.getElementById('contact-btn').addEventListener('click', () => {
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        });
+
+        // Scroll-top button
+        document.querySelector('.scroll-top').addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Footer smooth scroll links
+        document.querySelectorAll('.footer-links .scroll-link').forEach(link => {
+            link.addEventListener('click', e => {
+                e.preventDefault();
+                const targetId = link.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+        function openLogin() {
+    window.location.href = "login.html";
+}
+    </script>
+
+</body>
+</html>
